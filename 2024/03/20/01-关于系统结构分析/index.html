@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>羡愉博客 | 羡愉博客</title><meta name="author" content="Xian Yu"><meta name="copyright" content="Xian Yu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Servlet关于系统架构1.系统架构包括什么形式？  C&#x2F;S 架构  B&#x2F;C架构    2.C&#x2F;S架构？  Client&#x2F;Server(客户端&#x2F;服务器) C&#x2F;S架构的软件或者说系统有哪些呢？ QQ   C&#x2F;S架构的特点：需要安装特定的客户端软件。 C&#x2F;S架构的系统优点和缺点分别是什么？ 优点： 速度快（软件中的数据大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="羡愉博客">
+<meta property="og:url" content="http://zhenjiayu.github.io/2024/03/20/01-%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="羡愉博客">
+<meta property="og:description" content="Servlet关于系统架构1.系统架构包括什么形式？  C&#x2F;S 架构  B&#x2F;C架构    2.C&#x2F;S架构？  Client&#x2F;Server(客户端&#x2F;服务器) C&#x2F;S架构的软件或者说系统有哪些呢？ QQ   C&#x2F;S架构的特点：需要安装特定的客户端软件。 C&#x2F;S架构的系统优点和缺点分别是什么？ 优点： 速度快（软件中的数据大">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zhenjiayu.github.io/img/avatar.png">
+<meta property="article:published_time" content="2024-03-20T01:12:11.295Z">
+<meta property="article:modified_time" content="2022-09-26T07:45:16.734Z">
+<meta property="article:author" content="Xian Yu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zhenjiayu.github.io/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://zhenjiayu.github.io/2024/03/20/01-%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '羡愉博客',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-26 15:45:16'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="羡愉博客"><span class="site-name">羡愉博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-20T01:12:11.295Z" title="发表于 2024-03-20 09:12:11">2024-03-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-26T07:45:16.734Z" title="更新于 2022-09-26 15:45:16">2022-09-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="关于系统架构"><a href="#关于系统架构" class="headerlink" title="关于系统架构"></a>关于系统架构</h3><p>1.系统架构包括什么形式？</p>
+<ul>
+<li><p>C&#x2F;S 架构</p>
+<ul>
+<li>B&#x2F;C架构</li>
+</ul>
+</li>
+</ul>
+<p>2.C&#x2F;S架构？</p>
+<ul>
+<li>Client&#x2F;Server(客户端&#x2F;服务器)</li>
+<li>C&#x2F;S架构的软件或者说系统有哪些呢？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>C&#x2F;S架构的特点：需要安装特定的客户端软件。</li>
+<li>C&#x2F;S架构的系统优点和缺点分别是什么？<ul>
+<li>优点：<ul>
+<li>速度快（软件中的数据大部分都是集成到客户端软件当中的，很少量的数据从服务器端传过来，所以C&#x2F;S结构的系统速度快）</li>
+<li>体验好（速度又快，界面又炫酷，当然体验好了。）</li>
+<li>服务器压力小（因为大量的数据都是集成在客户端软件当中，所以服务器只需要传送很少的数据量，当然服务器压力小。）</li>
+<li>安全（因为大量的数据是集成在客户端软件当中的 ，并且客户端有很多个，服务器虽然只有一个，就算服务器那边地震了，火灾了，服务器受损了，问题也不大，因为大量的数据在多个客户端上有缓存，有储存，所以从这个方面来说，C&#x2F;S结构的系统比较安全。）</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>升级维护比较差劲（升级维护比较麻烦，成本比较高，每个客户端软件都需要升级，有一些软件不是那么容易安装的。）</li>
+</ul>
+</li>
+</ul>
+<p>3.B&#x2F;S架构？</p>
+<ul>
+<li>B&#x2F;S（Browser&#x2F;Server，浏览器&#x2F;服务器）</li>
+<li><a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jd.com/">http://www.jd.com</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.126.com/">http://www.126.com</a></li>
+<li>B&#x2F;S结构的系统是不是一个特殊的C&#x2F;S系统？<ul>
+<li>实际上B&#x2F;S结构的系统还是一个C&#x2F;S,只不过这个C比较特殊，这个Client是一个固定不变浏览器软件。</li>
+</ul>
+</li>
+<li>B&#x2F;S结构的系统优点和缺点是;<ul>
+<li>优点：<ul>
+<li>升级维护方便，成本比较低（只需要升级服务器端即可）</li>
+<li>不需要安装特定的客户端软件，用户操作及其方便，只需要打开浏览器，输入网址即可。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>速度慢（不是因为带宽低的问题，是因为所有的数据都是在服务器上，用户发送的每一个请求都是需要服务器全身心的响应数据，所以B&#x2F;S结构的系统在网络中传送的数据量比较大）</li>
+<li>体验差（界面不是那么酷炫，因为浏览器只支持三个语言HTML，CSS，JavaScript，在加上速度慢。）</li>
+<li>不安全（所有的数据都在服务器上，只要服务器发生火灾，地震不可抗力，最终数据全部丢失。）</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>4.C&#x2F;S和B&#x2F;S结构的系统，哪个好，哪个不好？</p>
+<ul>
+<li><p>这个问题问的没有水平，并不是哪个好，哪个不好。不同结构的系统在不同的业务场景下有不同的适用场景。</p>
+</li>
+<li><p>娱乐性软件建议使用？</p>
+<ul>
+<li>C&#x2F;S结构</li>
+</ul>
+</li>
+<li><p>公司内部使用的一些业务软件建议使用？</p>
+<ul>
+<li><p>公司内部使用的系统，需要维护成本低		</p>
+</li>
+<li><p>公司内部使用的系统，不需要很酷炫</p>
+</li>
+<li><p>公司内部使用的企业级系统主要是能够进行数据的维护即可</p>
+</li>
+<li><p>B&#x2F;S结构。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>5.注意了：开发B&#x2F;S结构的系统，其实就是开发网站，其实就是开发一个WEB系统。</p>
+<ul>
+<li>开发一个WEB系统你需要会哪些技术？<ul>
+<li>WEB前端（运行在浏览器上的程序）<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+</ul>
+</li>
+<li>WEB后端（WEB服务器的程序。）<ul>
+<li>Java可以（Java做WEB开发我们称为JavaWEB开发，JavaWEB开发最核心的规范：Servlet【Server Applet服务器端的Java小程序。】）</li>
+<li>C语言也可以</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>6.JavaEE是什么？</p>
+<ul>
+<li>java包括三大块：<ul>
+<li>JavaSE<ul>
+<li>Java标准版（一套类库：别人写好的一套类库，只不过这个类库是标准类库，走EE，或者走ME，这个SE一定是基础，先学）</li>
+</ul>
+</li>
+<li>JavaEE（WEB方向，WEB系统）<ul>
+<li>Java企业版（也是一套类库：也是别人写好的一套类库，只不过这套类库可以帮助我们完成企业级项目的开发，专门为企业内部提供解决方案的一套（多套）类库）</li>
+<li>别人写好的，你用就行了，用它可以开发企业级项目。</li>
+<li>可以开发web系统。</li>
+<li>java比较火爆的就是这个JavaEE方向</li>
+</ul>
+</li>
+<li>JavaME<ul>
+<li>Java微型版（还是一套类库，只不过这套类库帮助我们进行电子微型设备内核程序的开发）</li>
+<li>机顶盒内核程序，吸尘器内核程序，电冰箱内核程序，电饭煲内核程序。。。。。。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JavaEE实际上包含很多规范，13中规范，其中Servet就是JavaEE规范之一，学Servlet还是Java语言</li>
+</ul>
+<h3 id="B-S结构的系统通信原理"><a href="#B-S结构的系统通信原理" class="headerlink" title="B&#x2F;S结构的系统通信原理"></a>B&#x2F;S结构的系统通信原理</h3><ul>
+<li><p>WEB系统的访问过程</p>
+<ul>
+<li>第一步：打开浏览器</li>
+<li>第二步：找到任务栏</li>
+<li>第三步：输入一个合法的网站</li>
+<li>第四部：回车</li>
+<li>第五步：在浏览器上会展示响应的结果。</li>
+</ul>
+</li>
+<li><p>关于域名：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.baidu.com/%EF%BC%88%E7%BD%91%E5%9D%80%EF%BC%89">https://www.baidu.com/（网址）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.baidu.com是一个域名/">www.baidu.com是一个域名</a></li>
+<li>在浏览器地址栏上输入域名，回车之后，域名解析器会将域名解析出来一个具体的ip地址和端口号等</li>
+<li>解析结果也许是：<a target="_blank" rel="noopener" href="http://110.242.68.3/index.html">http://110.242.68.3:80/index.html</a></li>
+</ul>
+</li>
+<li><p>IP地址是啥？</p>
+<ul>
+<li>计算机在网络当中的一个身份证号，在同一个网络当中，IP地址是唯一的。</li>
+<li>A计算机想要和B计算机通信，首先你需要知道B计算机的IP地址，有了IP地址才能建立连接。</li>
+</ul>
+</li>
+<li><p>端口号是啥?</p>
+<ul>
+<li>一个端口代表一个软件。（一个端口代表一个应用，一个端口仅代表一个服务）。</li>
+<li>一个计算机当中有很多软件，每一个软件启动之后都会有一个端口号。</li>
+<li>在同一个计算机上，端口号具有唯一性</li>
+</ul>
+</li>
+<li><p>一个WEB系统的通信原理？通信步骤：</p>
+<ul>
+<li>第一步：用户输入网址（URL）</li>
+<li>第二步：域名解析器进行域名解析：<a target="_blank" rel="noopener" href="http://110.242.68.3/index.html">http://110.242.68.3:80/index.html</a></li>
+<li>第三步：浏览器软件在网络中搜索110.242.68.3这一台主机，直到找到这台主机。</li>
+<li>第四步：定位110.242.68.3这台主机上的服务器软件，因为是80端口，可以很轻松的定位到80端口对应的服务器软件。</li>
+<li>第五步：80端口对应的服务器软件得知浏览器想要的资源名：index.html</li>
+<li>第六步：服务器软件找到index.html文件，并且将index.html文件中的内容直接输出响应到浏览器上。</li>
+<li>第七步：浏览器接收到来自服务器的代码（HTML，CSS，JS）</li>
+<li>第八步：浏览器渲染，执行HTML CSS JS代码，展示效果</li>
+</ul>
+</li>
+<li><p>什么是URL？</p>
+<ul>
+<li>统一资源定位符（<a target="_blank" rel="noopener" href="http://www.baidu.com)/">http://www.baidu.com）</a></li>
+</ul>
+</li>
+<li><p>什么是请求,什么是响应？</p>
+<ul>
+<li>请求和响应实际上说的是数据的流向不同。</li>
+<li>从Browser端发送数据到Server端，我们称为请求，英语单词：request</li>
+<li>从Server端向Browser端发送数据，我们称为响应，英语单词：response</li>
+<li>B–&gt;S(请求 request)</li>
+<li>S–&gt;B(响应 response)</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+<p>		</p>
+<h2 id="关于WEB服务器软件"><a href="#关于WEB服务器软件" class="headerlink" title="关于WEB服务器软件"></a>关于WEB服务器软件</h2><ul>
+<li><p>WEB服务器软件都有哪些呢？（这些软件都是提前开发好的）</p>
+<ul>
+<li>Tomcat（WEB服务区）</li>
+<li>jetty(WEB服务区)</li>
+<li>JBOSS（应用服务器）</li>
+<li>WebLogic（应用服务器）</li>
+<li>WebSphere（应用服务器）</li>
+</ul>
+</li>
+<li><p>应用服务器和WEB服务器的关系？</p>
+<ul>
+<li><p>应用服务器实现了JavaEE的所有规范，（JavaEE有13个不同的规范）</p>
+</li>
+<li><p>WEB服务器只实现JavaEE中的Servlet+JSP两个核心的规范。</p>
+</li>
+<li><p>通过这个讲解说明了：应用服务器是包含WEB服务器的</p>
+</li>
+<li><p>用过JBOSS服务器的同学应该很清楚，JBOSS中内嵌了一个Tomcat服务器</p>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>	</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://zhenjiayu.github.io">Xian Yu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://zhenjiayu.github.io/2024/03/20/01-%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/">http://zhenjiayu.github.io/2024/03/20/01-%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://zhenjiayu.github.io" target="_blank">羡愉博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/20/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2024/03/19/%E4%BD%BF%E7%94%A8hexo%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="使用hexo创建个人博客"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">使用hexo创建个人博客</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xian Yu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhenjiayu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zhenjiayu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1792769795@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet"><span class="toc-number">1.</span> <span class="toc-text">Servlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">关于系统架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-S%E7%BB%93%E6%9E%84%E7%9A%84%E7%B3%BB%E7%BB%9F%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">B&#x2F;S结构的系统通信原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWEB%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">关于WEB服务器软件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/20/%E8%AF%B7%E6%B1%82/" title="无题">无题</a><time datetime="2024-03-20T01:12:11.314Z" title="发表于 2024-03-20 09:12:11">2024-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/20/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><time datetime="2024-03-20T01:12:11.311Z" title="发表于 2024-03-20 09:12:11">2024-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/20/01-%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" title="无题">无题</a><time datetime="2024-03-20T01:12:11.295Z" title="发表于 2024-03-20 09:12:11">2024-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/19/%E4%BD%BF%E7%94%A8hexo%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="使用hexo创建个人博客">使用hexo创建个人博客</a><time datetime="2024-03-19T07:24:27.151Z" title="发表于 2024-03-19 15:24:27">2024-03-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/19/hello-world/" title="Hello World">Hello World</a><time datetime="2024-03-19T07:18:08.324Z" title="发表于 2024-03-19 15:18:08">2024-03-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Xian Yu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
